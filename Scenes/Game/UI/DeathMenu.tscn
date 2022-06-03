@@ -1,0 +1,283 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Images/UI/DeathMenu.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/UI/DeathMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="DeathMenu" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Squares" type="Node2D" parent="."]
+position = Vector2( 0, -144 )
+
+[node name="Square1" type="Sprite" parent="Squares"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square2" type="Sprite" parent="Squares"]
+position = Vector2( 16, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square3" type="Sprite" parent="Squares"]
+position = Vector2( -16, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square4" type="Sprite" parent="Squares"]
+position = Vector2( -16, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square5" type="Sprite" parent="Squares"]
+position = Vector2( 0, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square6" type="Sprite" parent="Squares"]
+position = Vector2( 16, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square7" type="Sprite" parent="Squares"]
+position = Vector2( -16, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square8" type="Sprite" parent="Squares"]
+position = Vector2( 0, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square9" type="Sprite" parent="Squares"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square10" type="Sprite" parent="Squares"]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square11" type="Sprite" parent="Squares"]
+position = Vector2( 32, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square12" type="Sprite" parent="Squares"]
+position = Vector2( 32, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square13" type="Sprite" parent="Squares"]
+position = Vector2( -32, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square14" type="Sprite" parent="Squares"]
+position = Vector2( -32, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Square15" type="Sprite" parent="Squares"]
+position = Vector2( -32, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="Edges" type="Node2D" parent="."]
+position = Vector2( 0, -144 )
+
+[node name="Edge1" type="Sprite" parent="Edges"]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Edge2" type="Sprite" parent="Edges"]
+position = Vector2( 16, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Edge3" type="Sprite" parent="Edges"]
+position = Vector2( 32, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Edge4" type="Sprite" parent="Edges"]
+position = Vector2( -16, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Edge5" type="Sprite" parent="Edges"]
+position = Vector2( -32, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Edge6" type="Sprite" parent="Edges"]
+position = Vector2( 48, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Edge7" type="Sprite" parent="Edges"]
+position = Vector2( 48, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 16, 16, 16 )
+
+[node name="Edge8" type="Sprite" parent="Edges"]
+position = Vector2( 48, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 16, 16, 16 )
+
+[node name="Edge9" type="Sprite" parent="Edges"]
+position = Vector2( 48, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 16, 16, 16 )
+
+[node name="Edge10" type="Sprite" parent="Edges"]
+position = Vector2( 48, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 16, 16 )
+
+[node name="Edge11" type="Sprite" parent="Edges"]
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 32, 16, 16 )
+
+[node name="Edge12" type="Sprite" parent="Edges"]
+position = Vector2( 16, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 32, 16, 16 )
+
+[node name="Edge13" type="Sprite" parent="Edges"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 32, 16, 16 )
+
+[node name="Edge14" type="Sprite" parent="Edges"]
+position = Vector2( -16, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 32, 16, 16 )
+
+[node name="Edge15" type="Sprite" parent="Edges"]
+position = Vector2( -32, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 32, 16, 16 )
+
+[node name="Edge16" type="Sprite" parent="Edges"]
+position = Vector2( -48, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 16, 16 )
+
+[node name="Edge17" type="Sprite" parent="Edges"]
+position = Vector2( -48, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="Edge18" type="Sprite" parent="Edges"]
+position = Vector2( -48, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="Edge19" type="Sprite" parent="Edges"]
+position = Vector2( -48, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="Edge20" type="Sprite" parent="Edges"]
+position = Vector2( -48, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="YouDiedText" type="RichTextLabel" parent="."]
+margin_left = -32.0
+margin_top = -176.0
+margin_right = 64.0
+margin_bottom = -144.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "you  died!"
+
+[node name="MenuButton" type="Button" parent="."]
+margin_left = -21.0
+margin_top = -154.0
+margin_right = 24.0
+margin_bottom = -134.0
+rect_scale = Vector2( 1.0073, 0.977203 )
+custom_colors/font_color_hover = Color( 0.796078, 0.670588, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 0.976471, 0.811765, 0.0196078, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "menu"
+
+[node name="RespawnButton" type="Button" parent="."]
+margin_left = -26.0
+margin_top = -136.0
+margin_right = 30.0
+margin_bottom = -116.0
+rect_scale = Vector2( 1.0073, 0.977203 )
+custom_colors/font_color_hover = Color( 0.796078, 0.670588, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 0.976471, 0.811765, 0.0196078, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "respawn"
+
+[connection signal="button_up" from="MenuButton" to="." method="_on_MenuButton_button_up"]
+[connection signal="button_up" from="RespawnButton" to="." method="_on_RespawnButton_button_up"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UseWorldSwitcher.wav-3f6470ec318d1d086c4dd7e052e9788b.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/UseWorldSwitcher.wav"
+dest_files=[ "res://.import/UseWorldSwitcher.wav-3f6470ec318d1d086c4dd7e052e9788b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

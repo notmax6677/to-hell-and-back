@@ -1,0 +1,164 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Assets/Images/HellBlocks.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Blocks/BlockVariation.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Blocks/Destroy.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sounds/SFX/HitBlock.wav" type="AudioStream" id=4]
+
+[sub_resource type="ParticlesMaterial" id=39]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 5, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -30, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.627451, 0.576471, 0.698039, 1 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 1 )
+region = Rect2( 12, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 1 )
+region = Rect2( 60, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 72, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 12, 12 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 12, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 1 )
+region = Rect2( 60, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 1 )
+region = Rect2( 72, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 12, 12, 12 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="Curve" id=42]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.5 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=43]
+curve = SubResource( 42 )
+
+[sub_resource type="ParticlesMaterial" id=41]
+lifetime_randomness = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, -200, 0 )
+initial_velocity = 250.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_curve = SubResource( 43 )
+color = Color( 0.627451, 0.576471, 0.698039, 1 )
+
+[node name="HellBlock" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Particles" type="Particles2D" parent="."]
+position = Vector2( 0, -5 )
+amount = 2
+process_material = SubResource( 39 )
+
+[node name="BlockSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 10 )
+animation = "0"
+script = ExtResource( 2 )
+
+[node name="TipSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -11 )
+frames = SubResource( 20 )
+
+[node name="BlockBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="BlockBody"]
+shape = SubResource( 40 )
+
+[node name="DestroyParticles" type="Particles2D" parent="."]
+position = Vector2( 12, 0 )
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 41 )
+
+[node name="DestroyTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DestroySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_DestroyTimer_timeout"]

@@ -1,0 +1,776 @@
+[gd_scene load_steps=63 format=2]
+
+[ext_resource path="res://Assets/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Images/Menu/WildCard1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Menu/Camera.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Images/Menu/MainSign.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Menu/Menu.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Images/Menu/JamLogo.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/UI/Arrow.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Game/Objects/HellBlock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Game/Objects/HeavenBlock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Game/Objects/KillerBlock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Images/Angel.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Images/Demon.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Images/Alien.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Images/Menu/WildCard2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sounds/SFX/MenuClick.wav" type="AudioStream" id=15]
+[ext_resource path="res://Assets/Sounds/SFX/MainMenuClick.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sounds/Music/MenuMusic.mp3" type="AudioStream" id=17]
+
+[sub_resource type="DynamicFont" id=6]
+size = 14
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0, 0.0186335, 0.0372671, 0.0559006, 0.515528, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.929412, 0.117647, 0.368627, 0, 0.713984, 0.713984, 0.713984, 0.697368, 0.054902, 0.054902, 0.054902, 0, 0.929412, 0.117647, 0.368627, 1, 0.929412, 0.117647, 0.368627, 1 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.972826, 0.436364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 9 )
+color = Color( 0.929412, 0.117647, 0.368627, 1 )
+color_ramp = SubResource( 11 )
+
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0, 0.732919, 1 )
+colors = PoolColorArray( 0.796078, 0.670588, 0.909804, 1, 0.796078, 0.670588, 0.909804, 0.564706, 1, 1, 1, 0.4 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 15, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_curve = SubResource( 13 )
+color = Color( 0.796078, 0.670588, 0.909804, 1 )
+color_ramp = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+lifetime_randomness = 0.6
+emission_shape = 2
+emission_box_extents = Vector3( 40, 10, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -30, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_curve = SubResource( 19 )
+color = Color( 0.105882, 0.623529, 1, 1 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 8, 9 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 7 )
+region = Rect2( 8, 0, 8, 9 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="StyleBoxEmpty" id=27]
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 13 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 13 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 13 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 11 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 11 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 11 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 11 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 12 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 12 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 12 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 12 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 12 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=45]
+animations = [ {
+"frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Screen1" type="Node2D" parent="."]
+position = Vector2( -288, 0 )
+
+[node name="Label" type="RichTextLabel" parent="Screen1"]
+margin_left = -90.0
+margin_top = -42.0
+margin_right = 90.0
+margin_bottom = -24.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "for  the  godot  wild  jam  45"
+
+[node name="Logo" type="Sprite" parent="Screen1"]
+position = Vector2( 0, 30 )
+texture = ExtResource( 6 )
+
+[node name="Screen2" type="Node2D" parent="."]
+position = Vector2( -288, -192 )
+
+[node name="Label1" type="RichTextLabel" parent="Screen2"]
+margin_left = -78.0
+margin_top = -54.0
+margin_right = 111.0
+margin_bottom = -36.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "including  the  wildcards"
+
+[node name="Label2" type="RichTextLabel" parent="Screen2"]
+margin_left = -72.0
+margin_top = 36.0
+margin_right = 111.0
+margin_bottom = 54.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "next  and  breathtaking!"
+
+[node name="Wildcard1" type="Sprite" parent="Screen2"]
+position = Vector2( -15, 6 )
+texture = ExtResource( 2 )
+
+[node name="Wildcard2" type="Sprite" parent="Screen2"]
+position = Vector2( 18, 6 )
+texture = ExtResource( 14 )
+
+[node name="Screen3" type="Node2D" parent="."]
+position = Vector2( 0, -192 )
+
+[node name="Label" type="RichTextLabel" parent="Screen3"]
+margin_left = -36.0
+margin_top = -42.0
+margin_right = 36.0
+margin_bottom = -24.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "i  present"
+
+[node name="Screen4" type="Node2D" parent="."]
+
+[node name="StartButton" type="Button" parent="Screen4"]
+margin_left = -18.0
+margin_top = 30.0
+margin_right = 27.0
+margin_bottom = 50.0
+rect_scale = Vector2( 1.0073, 0.977203 )
+custom_colors/font_color_hover = Color( 0.796078, 0.670588, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 0.976471, 0.811765, 0.0196078, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
+text = "start"
+
+[node name="QuitButton" type="Button" parent="Screen4"]
+margin_left = -18.0
+margin_top = 54.0
+margin_right = 27.0
+margin_bottom = 74.0
+rect_scale = Vector2( 1.0073, 0.977203 )
+custom_colors/font_color_hover = Color( 0.796078, 0.670588, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 0.976471, 0.811765, 0.0196078, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
+text = "quit"
+
+[node name="HellParticles" type="Particles2D" parent="Screen4"]
+position = Vector2( 12, -54 )
+process_material = SubResource( 7 )
+
+[node name="AndParticles" type="Particles2D" parent="Screen4"]
+position = Vector2( -18, -24 )
+process_material = SubResource( 14 )
+
+[node name="BackParticles" type="Particles2D" parent="Screen4"]
+position = Vector2( 12, 6 )
+process_material = SubResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Screen4"]
+position = Vector2( 0, -12 )
+texture = ExtResource( 4 )
+
+[node name="ConvertScenePos" type="Node2D" parent="Screen4"]
+position = Vector2( 312, 291 )
+
+[node name="StartTimer" type="Timer" parent="Screen4"]
+one_shot = true
+
+[node name="Lore" type="Node2D" parent="Screen4"]
+position = Vector2( -27, 12 )
+
+[node name="Label" type="RichTextLabel" parent="Screen4/Lore"]
+margin_left = -87.0
+margin_top = 48.0
+margin_right = -15.0
+margin_bottom = 66.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "lore"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Lore"]
+position = Vector2( -69, 66 )
+frames = SubResource( 22 )
+frame = 1
+playing = true
+
+[node name="LoreButton" type="Button" parent="Screen4/Lore"]
+margin_left = -93.0
+margin_top = 45.0
+margin_right = -48.0
+margin_bottom = 75.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="Screen" type="Node2D" parent="Screen4/Lore"]
+position = Vector2( 27, 180 )
+
+[node name="Label1" type="RichTextLabel" parent="Screen4/Lore/Screen"]
+margin_left = -45.0
+margin_top = -45.0
+margin_right = 84.0
+margin_bottom = -24.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "this  is  a game  jam"
+
+[node name="Label2" type="RichTextLabel" parent="Screen4/Lore/Screen"]
+margin_left = -96.0
+margin_top = 30.0
+margin_right = 141.0
+margin_bottom = 51.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "were  u  seriously  expecting  lore"
+
+[node name="BackLabel" type="RichTextLabel" parent="Screen4/Lore/Screen"]
+margin_left = -69.0
+margin_top = -87.0
+margin_right = 3.0
+margin_bottom = -69.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "back"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Lore/Screen"]
+position = Vector2( -57, -93 )
+frames = SubResource( 22 )
+frame = 1
+playing = true
+flip_v = true
+
+[node name="LoreBackButton" type="Button" parent="Screen4/Lore/Screen"]
+margin_left = -75.0
+margin_top = -99.0
+margin_right = -33.0
+margin_bottom = -69.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="Guide" type="Node2D" parent="Screen4"]
+
+[node name="Label" type="RichTextLabel" parent="Screen4/Guide"]
+margin_left = 81.0
+margin_top = 60.0
+margin_right = 153.0
+margin_bottom = 78.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "guide"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Guide"]
+position = Vector2( 130, 68 )
+rotation = -1.5708
+frames = SubResource( 22 )
+playing = true
+flip_h = true
+
+[node name="GuideButton" type="Button" parent="Screen4/Guide"]
+margin_left = 75.0
+margin_top = 57.0
+margin_right = 138.0
+margin_bottom = 87.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="GuideScreens" type="Node2D" parent="Screen4/Guide"]
+
+[node name="Screen1" type="Node2D" parent="Screen4/Guide/GuideScreens"]
+position = Vector2( 306, 48 )
+
+[node name="Label1" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen1"]
+margin_left = -48.0
+margin_top = -57.0
+margin_right = 54.0
+margin_bottom = -39.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "how  to  play"
+
+[node name="Label2" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen1"]
+margin_left = -63.0
+margin_top = -21.0
+margin_right = 54.0
+margin_bottom = -3.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "space                  jump"
+
+[node name="Label3" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen1"]
+margin_left = -81.0
+margin_top = 15.0
+margin_right = 108.0
+margin_bottom = 33.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "l click                 attack   enemy"
+
+[node name="Button1" type="Node2D" parent="Screen4/Guide/GuideScreens/Screen1"]
+position = Vector2( -9, -3 )
+
+[node name="NextLabel" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen1/Button1"]
+margin_left = 90.0
+margin_top = 60.0
+margin_right = 162.0
+margin_bottom = 78.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "next"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen1/Button1"]
+position = Vector2( 130, 68 )
+rotation = -1.5708
+frames = SubResource( 22 )
+playing = true
+flip_h = true
+
+[node name="NextScreen1Button" type="Button" parent="Screen4/Guide/GuideScreens/Screen1/Button1"]
+margin_left = 75.0
+margin_top = 57.0
+margin_right = 138.0
+margin_bottom = 87.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="Button2" type="Node2D" parent="Screen4/Guide/GuideScreens/Screen1"]
+position = Vector2( -9, -3 )
+
+[node name="BackLabel" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen1/Button2"]
+margin_left = -93.0
+margin_top = 60.0
+margin_right = -21.0
+margin_bottom = 78.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "back"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen1/Button2"]
+position = Vector2( -102, 68 )
+rotation = -1.5708
+frames = SubResource( 22 )
+frame = 1
+playing = true
+flip_h = true
+flip_v = true
+
+[node name="BackButton" type="Button" parent="Screen4/Guide/GuideScreens/Screen1/Button2"]
+margin_left = -108.0
+margin_top = 57.0
+margin_right = -45.0
+margin_bottom = 87.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="Screen2" type="Node2D" parent="Screen4/Guide/GuideScreens"]
+position = Vector2( 621, 48 )
+
+[node name="Label1" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen2"]
+margin_left = -18.0
+margin_top = -63.0
+margin_right = 84.0
+margin_bottom = -45.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "blocks"
+
+[node name="Label2" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen2"]
+margin_left = -72.0
+margin_top = -27.0
+margin_right = 93.0
+margin_bottom = 9.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "hitting  a  block  makes  you  lose  half  a  heart"
+
+[node name="Label3" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen2"]
+margin_left = -102.0
+margin_top = 21.0
+margin_right = 114.0
+margin_bottom = 39.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "except  this"
+
+[node name="Label4" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen2"]
+margin_left = -33.0
+margin_top = 36.0
+margin_right = 183.0
+margin_bottom = 54.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "dont touch this"
+
+[node name="Button1" type="Node2D" parent="Screen4/Guide/GuideScreens/Screen2"]
+
+[node name="NextLabel" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen2/Button1"]
+margin_left = 90.0
+margin_top = 60.0
+margin_right = 162.0
+margin_bottom = 78.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "next"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen2/Button1"]
+position = Vector2( 130, 68 )
+rotation = -1.5708
+frames = SubResource( 22 )
+frame = 1
+playing = true
+flip_h = true
+
+[node name="NextButton" type="Button" parent="Screen4/Guide/GuideScreens/Screen2/Button1"]
+margin_left = 75.0
+margin_top = 57.0
+margin_right = 138.0
+margin_bottom = 87.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="Button2" type="Node2D" parent="Screen4/Guide/GuideScreens/Screen2"]
+
+[node name="BackLabel" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen2/Button2"]
+margin_left = -93.0
+margin_top = 60.0
+margin_right = -21.0
+margin_bottom = 78.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "back"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen2/Button2"]
+position = Vector2( -102, 68 )
+rotation = -1.5708
+frames = SubResource( 22 )
+playing = true
+flip_h = true
+flip_v = true
+
+[node name="Screen2BackButton" type="Button" parent="Screen4/Guide/GuideScreens/Screen2/Button2"]
+margin_left = -108.0
+margin_top = 57.0
+margin_right = -45.0
+margin_bottom = 87.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="HeavenBlocks" type="Node2D" parent="Screen4/Guide/GuideScreens/Screen2"]
+
+[node name="HeavenBlock" parent="Screen4/Guide/GuideScreens/Screen2/HeavenBlocks" instance=ExtResource( 9 )]
+position = Vector2( 105, -18 )
+
+[node name="HeavenBlock2" parent="Screen4/Guide/GuideScreens/Screen2/HeavenBlocks" instance=ExtResource( 9 )]
+position = Vector2( 117, -18 )
+
+[node name="HeavenBlock3" parent="Screen4/Guide/GuideScreens/Screen2/HeavenBlocks" instance=ExtResource( 9 )]
+position = Vector2( 105, -6 )
+
+[node name="HeavenBlock4" parent="Screen4/Guide/GuideScreens/Screen2/HeavenBlocks" instance=ExtResource( 9 )]
+position = Vector2( 117, -6 )
+
+[node name="HeavenBlock5" parent="Screen4/Guide/GuideScreens/Screen2/HeavenBlocks" instance=ExtResource( 9 )]
+position = Vector2( 129, -6 )
+
+[node name="HellBlocks" type="Node2D" parent="Screen4/Guide/GuideScreens/Screen2"]
+
+[node name="HellBlock" parent="Screen4/Guide/GuideScreens/Screen2/HellBlocks" instance=ExtResource( 8 )]
+position = Vector2( -114, -12 )
+
+[node name="HellBlock2" parent="Screen4/Guide/GuideScreens/Screen2/HellBlocks" instance=ExtResource( 8 )]
+position = Vector2( -102, -12 )
+
+[node name="HellBlock3" parent="Screen4/Guide/GuideScreens/Screen2/HellBlocks" instance=ExtResource( 8 )]
+position = Vector2( -90, -12 )
+
+[node name="KillerBlock" parent="Screen4/Guide/GuideScreens/Screen2" instance=ExtResource( 10 )]
+position = Vector2( 3, 27 )
+
+[node name="Screen3" type="Node2D" parent="Screen4/Guide/GuideScreens"]
+position = Vector2( 1071, 51 )
+
+[node name="Label1" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen3"]
+margin_left = -63.0
+margin_top = -72.0
+margin_right = 39.0
+margin_bottom = -54.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "the  goons!"
+
+[node name="Label2" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen3"]
+margin_left = -108.0
+margin_top = -45.0
+margin_right = 81.0
+margin_bottom = -9.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "from  time  to  time  a  goon  will  spawn  and  attack!"
+
+[node name="Label3" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen3"]
+margin_left = -138.0
+margin_top = -6.0
+margin_right = 78.0
+margin_bottom = 30.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "for  every  5  seconds  alive  it  takes  one  heart"
+
+[node name="Label4" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen3"]
+margin_left = -84.0
+margin_top = 36.0
+margin_right = 132.0
+margin_bottom = 72.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "click  on  it  to  hurt  it  back!"
+
+[node name="Button" type="Node2D" parent="Screen4/Guide/GuideScreens/Screen3"]
+position = Vector2( -33, 3 )
+
+[node name="BackLabel" type="RichTextLabel" parent="Screen4/Guide/GuideScreens/Screen3/Button"]
+margin_left = -93.0
+margin_top = 60.0
+margin_right = -21.0
+margin_bottom = 78.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "back"
+
+[node name="Arrow" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen3/Button"]
+position = Vector2( -102, 68 )
+rotation = -1.5708
+frames = SubResource( 22 )
+playing = true
+flip_h = true
+flip_v = true
+
+[node name="Screen3BackButton" type="Button" parent="Screen4/Guide/GuideScreens/Screen3/Button"]
+margin_left = -108.0
+margin_top = 57.0
+margin_right = -45.0
+margin_bottom = 87.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+
+[node name="Goon1" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen3"]
+position = Vector2( 78, -15 )
+frames = SubResource( 32 )
+playing = true
+
+[node name="Goon2" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen3"]
+position = Vector2( 6, 21 )
+frames = SubResource( 38 )
+frame = 3
+playing = true
+
+[node name="Goon3" type="AnimatedSprite" parent="Screen4/Guide/GuideScreens/Screen3"]
+position = Vector2( 84, 63 )
+frames = SubResource( 45 )
+frame = 5
+playing = true
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -282, 144 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+script = ExtResource( 3 )
+
+[node name="MoveTimer" type="Timer" parent="Camera"]
+wait_time = 3.0
+autostart = true
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="Camera"]
+stream = ExtResource( 15 )
+
+[node name="MainMenuClickSound" type="AudioStreamPlayer" parent="Camera"]
+stream = ExtResource( 16 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
+
+[connection signal="button_up" from="Screen4/StartButton" to="." method="_on_StartButton_button_up"]
+[connection signal="button_up" from="Screen4/QuitButton" to="." method="_on_QuitButton_button_up"]
+[connection signal="timeout" from="Screen4/StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="button_up" from="Screen4/Lore/LoreButton" to="Camera" method="_on_LoreButton_button_up"]
+[connection signal="button_up" from="Screen4/Lore/Screen/LoreBackButton" to="Camera" method="_on_LoreBackButton_button_up"]
+[connection signal="button_up" from="Screen4/Guide/GuideButton" to="Camera" method="_on_GuideButton_button_up"]
+[connection signal="button_up" from="Screen4/Guide/GuideScreens/Screen1/Button1/NextScreen1Button" to="Camera" method="_on_NextScreen1Button_button_up"]
+[connection signal="button_up" from="Screen4/Guide/GuideScreens/Screen1/Button2/BackButton" to="Camera" method="_on_BackButton_button_up"]
+[connection signal="button_up" from="Screen4/Guide/GuideScreens/Screen2/Button1/NextButton" to="Camera" method="_on_NextButton_button_up"]
+[connection signal="button_up" from="Screen4/Guide/GuideScreens/Screen2/Button2/Screen2BackButton" to="Camera" method="_on_Screen2BackButton_button_up"]
+[connection signal="button_up" from="Screen4/Guide/GuideScreens/Screen3/Button/Screen3BackButton" to="Camera" method="_on_Screen3BackButton_button_up"]
+[connection signal="timeout" from="Camera/MoveTimer" to="Camera" method="_on_MoveTimer_timeout"]

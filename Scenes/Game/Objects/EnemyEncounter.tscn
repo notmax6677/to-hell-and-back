@@ -1,0 +1,359 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://Assets/Images/Demon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/Angel.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/EnemyEncounter/PathFollower.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Images/Alien.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/EnemyEncounter/Enemy.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Images/UI/EnemySign.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sounds/SFX/EnemySpawned.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/SFX/EnemyDied.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/SFX/EnemyHit.wav" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=31]
+size = 14
+font_data = ExtResource( 6 )
+
+[sub_resource type="Curve2D" id=14]
+_data = {
+"points": PoolVector2Array( -24.8031, -0.595275, 24.8031, 0.595275, 0, 48, -6.01041, 5.3033, 6.01041, -5.3033, 48, 0, 6.01041, 6.01041, -6.01041, -6.01041, 48, -48, 24.0094, 0.198425, -24.0094, -0.198425, 0, -96, 7.49991, -10.9843, -7.49991, 10.9843, -48, -48, 11.1273, -12.7934, -11.1273, 12.7934, -96, 0, 24.0094, 0.198425, -24.0094, -0.198425, -144, 48, 5.56218, 9.80003, -5.56218, -9.80003, -192, 0, -5.56218, 12.9784, 5.56218, -12.9784, -192, -48, -25.5968, 0, 25.5968, 0, -144, -96, -18.4307, -11.3299, 18.4307, 11.3299, -96, -48, -24.2079, -0.39685, 24.2079, 0.39685, 0, 48 )
+}
+
+[sub_resource type="Curve" id=20]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=21]
+curve = SubResource( 20 )
+
+[sub_resource type="ParticlesMaterial" id=22]
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_curve = SubResource( 21 )
+
+[sub_resource type="Curve" id=32]
+_data = [ Vector2( 0, 0.5625 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=30]
+curve = SubResource( 32 )
+
+[sub_resource type="ParticlesMaterial" id=33]
+emission_shape = 1
+emission_sphere_radius = 15.0
+flag_disable_z = true
+gravity = Vector3( -90, 98, 0 )
+initial_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 1.0
+scale_curve = SubResource( 30 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="StyleBoxEmpty" id=27]
+
+[node name="EnemyEncounter" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Sign" type="Node2D" parent="."]
+position = Vector2( 120, 6 )
+
+[node name="Edge" type="Sprite" parent="Sign"]
+position = Vector2( 50, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Edge2" type="Sprite" parent="Sign"]
+position = Vector2( 66, 48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Squares" type="Node2D" parent="Sign"]
+
+[node name="Square1" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 66, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square2" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 82, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square3" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 82, 48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square4" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 98, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square5" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 98, 48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square6" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 114, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square7" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 114, 48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square8" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 130, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square9" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 130, 48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square10" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 146, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square11" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 146, 48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square12" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 162, 32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Square13" type="Sprite" parent="Sign/Squares"]
+position = Vector2( 162, 48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Text" type="RichTextLabel" parent="Sign"]
+margin_left = 80.0
+margin_top = 25.0
+margin_right = 176.0
+margin_bottom = 65.0
+custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_fonts/normal_font = SubResource( 31 )
+text = "a  goon  has  spawned!"
+
+[node name="EnemyPath" type="Path2D" parent="."]
+position = Vector2( 72, 24 )
+curve = SubResource( 14 )
+
+[node name="PathFollower" type="PathFollow2D" parent="EnemyPath"]
+position = Vector2( 0, 48 )
+rotate = false
+lookahead = 0.001
+script = ExtResource( 3 )
+
+[node name="Enemy" type="Node2D" parent="EnemyPath/PathFollower"]
+visible = false
+position = Vector2( -9.53674e-06, 0 )
+script = ExtResource( 5 )
+
+[node name="Particles" type="Particles2D" parent="EnemyPath/PathFollower/Enemy"]
+lifetime = 0.5
+local_coords = false
+process_material = SubResource( 22 )
+
+[node name="OneShotParticles" type="Particles2D" parent="EnemyPath/PathFollower/Enemy"]
+emitting = false
+amount = 16
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 33 )
+
+[node name="Sprites" type="Node2D" parent="EnemyPath/PathFollower/Enemy"]
+position = Vector2( 1.90735e-06, 0 )
+
+[node name="Demon" type="AnimatedSprite" parent="EnemyPath/PathFollower/Enemy/Sprites"]
+visible = false
+frames = SubResource( 7 )
+playing = true
+
+[node name="Angel" type="AnimatedSprite" parent="EnemyPath/PathFollower/Enemy/Sprites"]
+visible = false
+frames = SubResource( 13 )
+frame = 4
+playing = true
+
+[node name="Alien" type="AnimatedSprite" parent="EnemyPath/PathFollower/Enemy/Sprites"]
+frames = SubResource( 19 )
+frame = 2
+playing = true
+
+[node name="HurtButton" type="Button" parent="EnemyPath/PathFollower/Enemy"]
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 15.0
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+flat = true
+
+[node name="Health" type="Node2D" parent="EnemyPath/PathFollower/Enemy"]
+
+[node name="Health1" type="ColorRect" parent="EnemyPath/PathFollower/Enemy/Health"]
+margin_left = -8.0
+margin_top = -15.0
+margin_right = -3.0
+margin_bottom = -12.0
+color = Color( 0.921569, 0.027451, 0.027451, 1 )
+
+[node name="Health2" type="ColorRect" parent="EnemyPath/PathFollower/Enemy/Health"]
+margin_left = -8.0
+margin_top = -15.0
+margin_right = 3.0
+margin_bottom = -12.0
+color = Color( 0.956863, 0.831373, 0.164706, 1 )
+
+[node name="Health3" type="ColorRect" parent="EnemyPath/PathFollower/Enemy/Health"]
+margin_left = -8.0
+margin_top = -15.0
+margin_right = 8.0
+margin_bottom = -12.0
+color = Color( 0.623529, 0.839216, 0.309804, 1 )
+
+[node name="SpawnTimer" type="Timer" parent="EnemyPath/PathFollower/Enemy"]
+
+[node name="HurtTimer" type="Timer" parent="EnemyPath/PathFollower/Enemy"]
+wait_time = 5.0
+
+[node name="Spawned" type="AudioStreamPlayer" parent="EnemyPath/PathFollower/Enemy"]
+stream = ExtResource( 8 )
+
+[node name="Died" type="AudioStreamPlayer" parent="EnemyPath/PathFollower/Enemy"]
+stream = ExtResource( 9 )
+
+[node name="Hit" type="AudioStreamPlayer" parent="EnemyPath/PathFollower/Enemy"]
+stream = ExtResource( 10 )
+
+[connection signal="button_down" from="EnemyPath/PathFollower/Enemy/HurtButton" to="EnemyPath/PathFollower/Enemy" method="_on_HurtButton_button_down"]
+[connection signal="timeout" from="EnemyPath/PathFollower/Enemy/SpawnTimer" to="EnemyPath/PathFollower/Enemy" method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="EnemyPath/PathFollower/Enemy/HurtTimer" to="EnemyPath/PathFollower/Enemy" method="_on_HurtTimer_timeout"]

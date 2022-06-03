@@ -1,0 +1,159 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Assets/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Menu/SecondMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sounds/SFX/MainMenuClick.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Images/Menu/MainSign.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sounds/Music/MenuMusic.mp3" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0, 0.0186335, 0.0372671, 0.0559006, 0.515528, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.929412, 0.117647, 0.368627, 0, 0.713984, 0.713984, 0.713984, 0.697368, 0.054902, 0.054902, 0.054902, 0, 0.929412, 0.117647, 0.368627, 1, 0.929412, 0.117647, 0.368627, 1 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.972826, 0.436364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 9 )
+color = Color( 0.929412, 0.117647, 0.368627, 1 )
+color_ramp = SubResource( 11 )
+
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0, 0.732919, 1 )
+colors = PoolColorArray( 0.796078, 0.670588, 0.909804, 1, 0.796078, 0.670588, 0.909804, 0.564706, 1, 1, 1, 0.4 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 15, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_curve = SubResource( 13 )
+color = Color( 0.796078, 0.670588, 0.909804, 1 )
+color_ramp = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+lifetime_randomness = 0.6
+emission_shape = 2
+emission_box_extents = Vector3( 40, 10, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -30, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_curve = SubResource( 19 )
+color = Color( 0.105882, 0.623529, 1, 1 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Screen" type="Node2D" parent="."]
+position = Vector2( 0, -200 )
+
+[node name="StartButton" type="Button" parent="Screen"]
+margin_left = -18.0
+margin_top = 30.0
+margin_right = 27.0
+margin_bottom = 50.0
+rect_scale = Vector2( 1.0073, 0.977203 )
+custom_colors/font_color_hover = Color( 0.796078, 0.670588, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 0.976471, 0.811765, 0.0196078, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
+text = "start"
+
+[node name="QuitButton" type="Button" parent="Screen"]
+margin_left = -18.0
+margin_top = 54.0
+margin_right = 27.0
+margin_bottom = 74.0
+rect_scale = Vector2( 1.0073, 0.977203 )
+custom_colors/font_color_hover = Color( 0.796078, 0.670588, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 0.976471, 0.811765, 0.0196078, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
+text = "quit"
+
+[node name="HellParticles" type="Particles2D" parent="Screen"]
+position = Vector2( 12, -54 )
+process_material = SubResource( 7 )
+
+[node name="AndParticles" type="Particles2D" parent="Screen"]
+position = Vector2( -18, -24 )
+process_material = SubResource( 14 )
+
+[node name="BackParticles" type="Particles2D" parent="Screen"]
+position = Vector2( 12, 6 )
+process_material = SubResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Screen"]
+position = Vector2( 0, -12 )
+texture = ExtResource( 4 )
+
+[node name="ConvertScenePos" type="Node2D" parent="Screen"]
+position = Vector2( 192, 192 )
+
+[node name="StartTimer" type="Timer" parent="Screen"]
+one_shot = true
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.3, 0.3 )
+
+[node name="MainMenuClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[connection signal="button_up" from="Screen/StartButton" to="." method="_on_StartButton_button_up"]
+[connection signal="button_up" from="Screen/QuitButton" to="." method="_on_QuitButton_button_up"]
+[connection signal="timeout" from="Screen/StartTimer" to="." method="_on_StartTimer_timeout"]

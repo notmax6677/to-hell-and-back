@@ -1,0 +1,245 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/Game/Generator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Game/UI/LifeUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Game/UI/ScoreCount.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Game/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Camera/CameraFollowPlayer.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Game/Objects/HeavenCloud.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Game/Objects/HellCloud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/UI/Begin.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Game/UI/BeginSign.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Game/Objects/Background.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Game/Objects/EnemyEncounter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Sounds/SFX/MainMenuClick.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Sounds/SFX/StartedGame.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Sounds/Music/GameMusic.mp3" type="AudioStream" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 155, 68 )
+
+[node name="World" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource( 10 )]
+position = Vector2( -96, -114 )
+
+[node name="Generator" parent="." instance=ExtResource( 1 )]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -156, -138 )
+rotating = true
+current = true
+zoom = Vector2( 0.3, 0.3 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HeavenClouds" type="Node2D" parent="Camera"]
+
+[node name="HeavenCloud1" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -150, -84 )
+
+[node name="HeavenCloud2" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -138, -84 )
+
+[node name="HeavenCloud3" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -126, -84 )
+
+[node name="HeavenCloud4" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -114, -84 )
+
+[node name="HeavenCloud5" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -102, -84 )
+
+[node name="HeavenCloud6" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -90, -84 )
+
+[node name="HeavenCloud7" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -78, -84 )
+
+[node name="HeavenCloud8" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -66, -84 )
+
+[node name="HeavenCloud9" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -54, -84 )
+
+[node name="HeavenCloud10" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -42, -84 )
+
+[node name="HeavenCloud11" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -30, -84 )
+
+[node name="HeavenCloud12" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -18, -84 )
+
+[node name="HeavenCloud13" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( -6, -84 )
+
+[node name="HeavenCloud14" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 6, -84 )
+
+[node name="HeavenCloud15" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 18, -84 )
+
+[node name="HeavenCloud16" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 30, -84 )
+
+[node name="HeavenCloud17" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 42, -84 )
+
+[node name="HeavenCloud18" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 54, -84 )
+
+[node name="HeavenCloud19" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 66, -84 )
+
+[node name="HeavenCloud20" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 78, -84 )
+
+[node name="HeavenCloud21" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 90, -84 )
+
+[node name="HeavenCloud22" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 102, -84 )
+
+[node name="HeavenCloud23" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 114, -84 )
+
+[node name="HeavenCloud24" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 126, -84 )
+
+[node name="HeavenCloud25" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 138, -84 )
+
+[node name="HeavenCloud26" parent="Camera/HeavenClouds" instance=ExtResource( 6 )]
+position = Vector2( 150, -84 )
+
+[node name="HellClouds" type="Node2D" parent="Camera"]
+
+[node name="HellCloud1" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -150, 84 )
+
+[node name="HellCloud2" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -138, 84 )
+
+[node name="HellCloud3" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -126, 84 )
+
+[node name="HellCloud4" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -114, 84 )
+
+[node name="HellCloud5" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -102, 84 )
+
+[node name="HellCloud6" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -90, 84 )
+
+[node name="HellCloud7" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -78, 84 )
+
+[node name="HellCloud8" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -66, 84 )
+
+[node name="HellCloud9" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -54, 84 )
+
+[node name="HellCloud10" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -42, 84 )
+
+[node name="HellCloud11" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -30, 84 )
+
+[node name="HellCloud12" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -18, 84 )
+
+[node name="HellCloud13" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( -6, 84 )
+
+[node name="HellCloud14" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 6, 84 )
+
+[node name="HellCloud15" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 18, 84 )
+
+[node name="HellCloud16" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 30, 84 )
+
+[node name="HellCloud17" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 42, 84 )
+
+[node name="HellCloud18" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 54, 84 )
+
+[node name="HellCloud19" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 66, 84 )
+
+[node name="HellCloud20" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 78, 84 )
+
+[node name="HellCloud21" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 90, 84 )
+
+[node name="HellCloud22" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 102, 84 )
+
+[node name="HellCloud23" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 114, 84 )
+
+[node name="HellCloud24" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 126, 84 )
+
+[node name="HellCloud25" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 138, 84 )
+
+[node name="HellCloud26" parent="Camera/HellClouds" instance=ExtResource( 7 )]
+position = Vector2( 150, 84 )
+
+[node name="UI" type="Node2D" parent="Camera"]
+visible = false
+
+[node name="LifeUI" parent="Camera/UI" instance=ExtResource( 2 )]
+position = Vector2( 36, -72 )
+
+[node name="ScoreCount" parent="Camera/UI" instance=ExtResource( 3 )]
+position = Vector2( -138, -78 )
+
+[node name="BeginSign" parent="Camera" instance=ExtResource( 9 )]
+position = Vector2( 0, -15 )
+
+[node name="EnemyEncounter" parent="Camera" instance=ExtResource( 11 )]
+
+[node name="ShakeTimer" type="Timer" parent="Camera"]
+wait_time = 0.4
+
+[node name="Begin" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Top" type="Area2D" parent="Begin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Begin/Top"]
+position = Vector2( 73, -68 )
+shape = SubResource( 1 )
+
+[node name="Bot" type="Area2D" parent="Begin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Begin/Bot"]
+position = Vector2( 72, 66 )
+shape = SubResource( 1 )
+
+[node name="Started" type="AudioStreamPlayer" parent="Begin"]
+stream = ExtResource( 13 )
+
+[node name="MainMenuClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+autoplay = true
+
+[connection signal="timeout" from="Camera/ShakeTimer" to="Camera" method="_on_ShakeTimer_timeout"]
+[connection signal="input_event" from="Begin/Top" to="Begin" method="_on_Top_input_event"]
+[connection signal="input_event" from="Begin/Bot" to="Begin" method="_on_Bot_input_event"]
